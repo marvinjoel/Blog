@@ -1,0 +1,16 @@
+{% extends "base/index.html" %}
+
+
+{% block title %} Registro{% endblock title %}
+
+#Agreagar en la configuracion (apps. crispy_forms) y añadir bootstrap4
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <form  method="post" class="mt-2" action="" autocomplete="off">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button type="submit" class="btn btn-success">Registrar</button>
+        <a href="{% url 'login:login'%}" class="btn btn-danger">Cancelar</a>
+    </form>
+{% endblock content %}
