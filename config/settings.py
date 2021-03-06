@@ -1,6 +1,7 @@
 
 
 from pathlib import Path
+from django.contrib.messages import constants as message_contants
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,6 +31,7 @@ INSTALLED_APPS = [
     #Aplicaciones
     'apps.login',
     'apps.usuarios',
+
 
     # Paquetes
     'crispy_forms',
@@ -99,9 +101,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Lima'
 
 USE_I18N = True
 
@@ -114,4 +116,31 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (BASE_DIR , 'templates')
+STATICFILES_DIRS = (BASE_DIR , 'static')
+
+# Template frmulario bootstrap4
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+MESSAGE_TAGS = {
+    message_contants.DEBUG: 'debug',
+    message_contants.INFO: 'info',
+    message_contants.SUCCESS: 'success',
+    message_contants.WARNING: 'warning',
+    message_contants.ERROR: 'danger',
+}
+
+
+LOGIN_REDIRECT_URL = '/'
+
+
+
+
+
+
+
+
+
+
+
+
+
