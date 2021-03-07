@@ -25,12 +25,6 @@ class InicioView(View):
         #fin paginador
         return render(request, template, {'post':post, 'paginas':paginas, 'pagina_actual':pagina_actual})
 
-    @login_required()
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
-
-
-
 
 
 class Create_post(View):
