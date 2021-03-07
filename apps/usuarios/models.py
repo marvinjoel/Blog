@@ -1,3 +1,5 @@
+import os
+
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -22,6 +24,16 @@ class PostModel(models.Model):
     imagen = models.ImageField(upload_to='post/%Y/%m/%d', null=True, blank=True, verbose_name='Imagen del post')
     fecha_alta = models.DateTimeField(auto_now_add=True, verbose_name='Fecha alta')
     fecha_actualizacion = models.DateTimeField(verbose_name='Fecha actualización', auto_now_add=True)
+
+
+    # eliminacion de archivos que se guardan en la carpeta
+
+    def delete(self, *args,**kwargs):
+        if os.path.isfile(self.imagen.path):
+            os.remove(self.imagen.path)
+        super(PostModel, self).delete(*args,**kwargs)
+
+
 
     def __str__(self):
         return self.titulo

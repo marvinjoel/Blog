@@ -7,7 +7,6 @@ from django.views import View
 
 
 
-
 class RegistroView(View):
 
     #Vista del formulario de registro de usuarios
@@ -38,4 +37,6 @@ class AccederView(LoginView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
+
 

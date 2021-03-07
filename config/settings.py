@@ -1,5 +1,4 @@
 
-
 from pathlib import Path
 from django.contrib.messages import constants as message_contants
 
@@ -131,6 +130,11 @@ MESSAGE_TAGS = {
 
 
 LOGIN_REDIRECT_URL = '/'
+
+import os
+#Url para archivos media de base de datos
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # guardar de nuevo los archivos
 
 
 
