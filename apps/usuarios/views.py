@@ -2,9 +2,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views import View
-from django.views.generic import TemplateView, DeleteView
 
 from apps.usuarios.forms import PostForms
 from apps.usuarios.models import PostModel
@@ -13,6 +12,8 @@ from apps.usuarios.models import PostModel
 
 
 class InicioView(View):
+
+    @method_decorator(login_required(login_url='/login/'))
     def get(self, request):
         template = 'inicio.html'
         lista_posts = PostModel.objects.all()
@@ -29,6 +30,7 @@ class InicioView(View):
 
 class Create_post(View):
 
+    @method_decorator(login_required(login_url='/login/'))
     def get(self, request):
         template = 'npost.html'
         form = PostForms

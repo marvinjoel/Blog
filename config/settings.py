@@ -148,3 +148,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # guardar de nuevo los archivos
 
 
 
+
+
+
